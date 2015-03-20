@@ -1,5 +1,3 @@
-from django.conf import settings
-
 import os
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 
@@ -30,6 +28,8 @@ MIDDLEWARE_CLASSES=(
 
 ROOT_URLCONF='urls'
 
+# Uncomment if you use Django ORM database
+# 
 # if DATABASE_DEBUG:
 #     DATABASES = {
 #         'default': {
@@ -51,7 +51,7 @@ ROOT_URLCONF='urls'
 #     }
 
 # Internationalization
-# https://docs.djangoproject.com/en/{{ docs_version }}/topics/i18n/
+# https://docs.djangoproject.com/en/1.7/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -81,8 +81,13 @@ TEMPLATE_DIRS = (
 
 LOGIN_REDIRECT_URL = '/'
 
-TEMPLATE_CONTEXT_PROCESSORS = settings.TEMPLATE_CONTEXT_PROCESSORS + (
-   'django.core.context_processors.request',
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.core.context_processors.request'
 )
 
 # Mail Configs
