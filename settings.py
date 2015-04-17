@@ -17,14 +17,18 @@ ALLOWED_HOSTS = ['*']
 # INTERNAL_IPS = ()
 
 INSTALLED_APPS = (
+    'django.contrib.sessions',
     'django.contrib.staticfiles',
 )
 
 MIDDLEWARE_CLASSES=(
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware'
 )
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
 ROOT_URLCONF='urls'
 
